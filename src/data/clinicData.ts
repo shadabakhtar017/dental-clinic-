@@ -37,15 +37,15 @@ export interface TestimonialItem {
 }
 
 export const CLINIC_INFO = {
-  name: "Ankit Dental Implant Centre",
-  shortName: "Ankit Dental",
+  name: "Dental Implant Centre",
+  shortName: "Dental Implant Centre",
   tagline: "Your Smile, Designed to Shine.",
   doctor: {
-    name: "Dr. Ankit",
+    name: "Dr. Your Name",
     qualifications: "BDS, MDS (Dental Implantologist)",
     experience: "9+ Years Experience",
     role: "Founder & Chief Dental Surgeon",
-    bio: "With over 9 years of specialized clinical experience, Dr. Ankit merges biomimetic dental science with advanced implantology. Having trained at premier dental institutes and treated over 8,000 satisfied patients, Dr. Ankit specializes in precision dental implants, full-mouth rehabilitation, and Invisalign clear aligners. His philosophy prioritizes patient comfort, open communication, and zero-anxiety clinical protocols.",
+    bio: "With over 9 years of specialized clinical experience, Dr. Your Name merges biomimetic dental science with advanced implantology. Having trained at premier dental institutes and treated over 8,000 satisfied patients, Dr. Your Name specializes in precision dental implants, full-mouth rehabilitation, and Invisalign clear aligners. His philosophy prioritizes patient comfort, open communication, and zero-anxiety clinical protocols.",
     memberships: [
       "Dental Implantologist",
       "Invisalign Certified Provider",
@@ -66,7 +66,7 @@ export const CLINIC_INFO = {
   contact: {
     phone: "+91 98765 43210",
     phoneClean: "+919876543210",
-    email: "hello@ankitdentalimplant.com",
+    email: "hello@dentalimplantcentre.com",
     emergencyPhone: "+91 98765 43210"
   },
   hours: {
@@ -220,7 +220,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: "Riya Sharma",
     role: "Resident, Sirhind",
     treatment: "Invisible Aligners & Whitening",
-    quote: "From booking to treatment, everything felt incredibly comfortable and professional. The 3D simulation was spot-on, and Dr. Ankit explained every step with such warmth.",
+    quote: "From booking to treatment, everything felt incredibly comfortable and professional. The 3D simulation was spot-on, and Dr. Your Name explained every step with such warmth.",
     rating: 5,
     date: "2 weeks ago"
   },
@@ -229,7 +229,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: "Arjun Kapoor",
     role: "Software Consultant, Mohali",
     treatment: "Dental Implant & Crown",
-    quote: "I had been nervous about dental treatment for years after a bad childhood experience, but the Ankit Dental Implant Centre team made the whole experience completely painless and stress-free.",
+    quote: "I had been nervous about dental treatment for years after a bad childhood experience, but the Dental Implant Centre team made the whole experience completely painless and stress-free.",
     rating: 5,
     date: "1 month ago"
   },
@@ -247,7 +247,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: "Devendra Malik",
     role: "Business Owner, Punjab",
     treatment: "Full Mouth Smile Restoration",
-    quote: "The digital planning process is unreal. Being able to see my smile design before committing made all the difference. Dr. Ankit's clinical expertise is world-class.",
+    quote: "The digital planning process is unreal. Being able to see my smile design before committing made all the difference. Dr. Your Name's clinical expertise is world-class.",
     rating: 5,
     date: "3 months ago"
   }
@@ -260,7 +260,7 @@ export const FAQS = [
   },
   {
     q: "How many sittings are required for a Root Canal?",
-    a: "At Ankit Dental Implant Centre, over 85% of root canal treatments are successfully completed in a single, comfortable 45-minute sitting using rotary endodontics and high-definition apex locators."
+    a: "At Dental Implant Centre, over 85% of root canal treatments are successfully completed in a single, comfortable 45-minute sitting using rotary endodontics and high-definition apex locators."
   },
   {
     q: "Do you offer emergency dental care in Sirhind City, Punjab?",

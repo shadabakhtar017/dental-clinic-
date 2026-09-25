@@ -93,7 +93,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ initialT
 
             <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-8">
               Schedule your comprehensive oral examination and digital aesthetic consultation 
-              with Dr. Ankit at our centre in Sirhind City, Punjab.
+              with Dr. Your Name at our centre in Sirhind City, Punjab.
             </p>
 
             <div className="space-y-4 mb-8">

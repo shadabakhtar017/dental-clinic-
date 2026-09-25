@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'Treatments', href: '#treatments' },
-    { name: 'Why Ankit Dental', href: '#trust' },
+    { name: 'Why Us', href: '#trust' },
     { name: 'Technology', href: '#technology' },
     { name: 'Doctor', href: '#doctor' },
     { name: 'Testimonials', href: '#testimonials' },
@@ -84,11 +84,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <Sparkles className="w-5 h-5 text-[#90E0EF]" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-bold tracking-tight text-[#0A1128] leading-none">
-                ANKIT
+              <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#0A1128] leading-none">
+                DENTAL IMPLANT
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-[#627D98] font-medium mt-0.5">
-                Dental Implant Centre
+                Centre
               </span>
             </div>
           </a>

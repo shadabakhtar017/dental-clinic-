@@ -18,17 +18,17 @@ export const Footer: React.FC = () => {
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-xl font-bold tracking-tight text-white leading-none">
-                  ANKIT
+                <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white leading-none">
+                  DENTAL IMPLANT
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-[#90E0EF] font-medium mt-0.5">
-                  Dental Implant Centre
+                  Centre
                 </span>
               </div>
             </div>
             <p className="text-xs text-white/60 leading-relaxed max-w-sm mb-6">
-              Ankit Dental Implant Centre delivers modern, biomimetic, and technologically advanced 
-              dental care in Sirhind City, Punjab. Founded by Dr. Ankit, BDS, MDS.
+              Dental Implant Centre delivers modern, biomimetic, and technologically advanced 
+              dental care in Sirhind City, Punjab. Founded by Dr. Your Name, BDS, MDS.
             </p>
             <div className="flex items-center gap-3">
               {/* Instagram */}
@@ -104,9 +104,9 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-white/70">
               <li><a href="#hero" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#trust" className="hover:text-white transition-colors">Why Ankit Dental</a></li>
+              <li><a href="#trust" className="hover:text-white transition-colors">Why Us</a></li>
               <li><a href="#technology" className="hover:text-white transition-colors">Technology</a></li>
-              <li><a href="#doctor" className="hover:text-white transition-colors">Dr. Ankit</a></li>
+              <li><a href="#doctor" className="hover:text-white transition-colors">Dr. Your Name</a></li>
               <li><a href="#testimonials" className="hover:text-white transition-colors">Patient Stories</a></li>
               <li><a href="#location" className="hover:text-white transition-colors">Contact & Map</a></li>
             </ul>
@@ -142,7 +142,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar with Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/50">
           <p>
-            © {new Date().getFullYear()} Ankit Dental Implant Centre. All rights reserved. Dr. Ankit, BDS, MDS.
+            © {new Date().getFullYear()} Dental Implant Centre. All rights reserved. Dr. Your Name, BDS, MDS.
           </p>
 
           <div className="flex items-center gap-6">

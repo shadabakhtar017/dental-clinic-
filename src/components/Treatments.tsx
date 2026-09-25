@@ -54,7 +54,7 @@ export const Treatments: React.FC<TreatmentsProps> = ({ onSelectTreatmentForBook
             </h2>
           </div>
           <p className="max-w-md text-sm sm:text-base text-[#627D98] leading-relaxed">
-            Every procedure at Ankit Dental Implant Centre combines biomimetic clinical principles with digital accuracy, 
+            Every procedure at Dental Implant Centre combines biomimetic clinical principles with digital accuracy, 
             ensuring your treatments are conservative, comfortable, and enduring.
           </p>
         </div>

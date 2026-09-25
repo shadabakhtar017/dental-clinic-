@@ -23,7 +23,7 @@ export const Doctor: React.FC<DoctorProps> = ({ onOpenBooking }) => {
                 {/* Doctor Portrait Image */}
                 <div className="w-full aspect-[4/5] relative overflow-hidden bg-slate-100">
                   <img
-                    src="/images/dr-ankit.png"
+                    src="/images/doctor.jpg"
                     alt={doctor.name}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />

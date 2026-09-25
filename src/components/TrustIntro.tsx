@@ -46,13 +46,13 @@ export const TrustIntro: React.FC = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-[#3E4C59] leading-relaxed mb-6">
-              At Ankit Dental Implant Centre, we believe that world-class oral healthcare begins with 
+              At Dental Implant Centre, we believe that world-class oral healthcare begins with 
               uncompromising comfort. Traditional dental visits often carried clinical apprehension; 
               we have re-engineered every touchpoint to feel calming, transparent, and restorative.
             </p>
 
             <p className="text-base sm:text-lg text-[#627D98] leading-relaxed mb-10">
-              By pairing state-of-the-art 3D imaging and computer-assisted restorations with Dr. Ankit’s 
+              By pairing state-of-the-art 3D imaging and computer-assisted restorations with Dr. Your Name’s 
               gentle, empathetic approach, your treatments are completed with remarkable speed, minimal downtime, 
               and results that look effortlessly natural.
             </p>
@@ -83,7 +83,7 @@ export const TrustIntro: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#00B4D8] animate-pulse" />
                     <span className="text-xs font-bold uppercase tracking-wider text-[#0A1128]">
-                      ANKIT DENTAL CARE MATRIX
+                      DENTAL IMPLANT CARE MATRIX
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-[#627D98]">EST. SIRHIND, PUNJAB</span>

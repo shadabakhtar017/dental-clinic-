@@ -110,7 +110,7 @@ export const LocationSection: React.FC = () => {
               <div className="w-full h-[400px] sm:h-[460px] rounded-2xl overflow-hidden relative bg-[#E2E8F0]">
                 {/* Embed Map */}
                 <iframe
-                  title="Ankit Dental Implant Centre Sirhind City Punjab Location Map"
+                  title="Dental Implant Centre Sirhind City Punjab Location Map"
                   src={location.mapEmbedUrl}
                   width="100%"
                   height="100%"
@@ -124,7 +124,7 @@ export const LocationSection: React.FC = () => {
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-soft-lg border border-black/[0.08] max-w-xs">
                   <div className="flex items-center gap-2 mb-1 text-[#0A1128]">
                     <MapPin className="w-4 h-4 text-[#00B4D8]" />
-                    <span className="text-xs font-bold">Ankit Dental Implant Centre</span>
+                    <span className="text-xs font-bold">Dental Implant Centre</span>
                   </div>
                   <p className="text-[11px] text-[#627D98] mb-2">
                     GT Road, Sirhind City, Punjab

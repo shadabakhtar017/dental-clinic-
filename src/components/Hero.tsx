@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
                 <Award className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs font-bold text-[#0A1128]">Dr. Ankit</p>
+                <p className="text-xs font-bold text-[#0A1128]">Dr. Your Name</p>
                 <p className="text-[11px] text-[#627D98]">BDS, MDS • 9+ Yrs Exp</p>
               </div>
             </div>

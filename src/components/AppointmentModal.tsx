@@ -149,7 +149,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
               Book Your Visit
             </h3>
             <p className="text-xs text-[#627D98] mb-5">
-              Sirhind City, Punjab • Dr. Ankit
+              Sirhind City, Punjab • Dr. Your Name
             </p>
 
             <div className="space-y-4 mb-5">
