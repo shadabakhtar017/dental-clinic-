@@ -27,13 +27,16 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ className = '' }) => {
     );
     camera.position.set(0, 0, 7);
 
+    // Touch / pointer device detection
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias: !isTouch,
       alpha: true,
-      powerPreference: 'high-performance'
+      powerPreference: isTouch ? 'default' : 'high-performance'
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isTouch ? 1.5 : 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.1;
@@ -86,7 +89,7 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ className = '' }) => {
       metalness: 0.05,
       clearcoat: 0.9,
       clearcoatRoughness: 0.12,
-      transmission: 0.45, // Soft translucent dental ceramic feel
+      transmission: isTouch ? 0 : 0.45, // Soft translucent dental ceramic feel (disabled on mobile to eliminate framebuffer readbacks)
       ior: 1.54, // Crown enamel refractive index
       thickness: 1.2,
       specularColor: new THREE.Color('#00B4D8'),
@@ -196,7 +199,9 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ className = '' }) => {
       mouseY = -(clientY / rect.height - 0.5) * 2;
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    if (!isTouch) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
 
     // Handle Resize with ResizeObserver
     const handleResize = () => {
@@ -211,12 +216,37 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ className = '' }) => {
     const resizeObserver = new ResizeObserver(() => handleResize());
     resizeObserver.observe(container);
 
-    // Animation Loop
+    // Animation Loop with Visibility / Offscreen Pausing
     let animationFrameId: number;
     let clock = new THREE.Clock();
+    let isVisible = true;
+    let isRunning = true;
+    let isTouchScrolling = false;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+
+    const handleTouchScroll = () => {
+      isTouchScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isTouchScrolling = false;
+      }, 90);
+    };
+
+    if (isTouch) {
+      window.addEventListener('scroll', handleTouchScroll, { passive: true });
+    }
 
     const animate = () => {
+      if (!isVisible) {
+        isRunning = false;
+        return;
+      }
       animationFrameId = requestAnimationFrame(animate);
+
+      if (isTouch && isTouchScrolling) {
+        return;
+      }
+
       const elapsedTime = clock.getElapsedTime();
 
       if (!prefersReducedMotion) {
@@ -245,12 +275,34 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ className = '' }) => {
       renderer.render(scene, camera);
     };
 
+    // Pause rendering when scrolled out of view to preserve mobile GPU/CPU
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        const currentlyVisible = entry.isIntersecting;
+        if (currentlyVisible !== isVisible) {
+          isVisible = currentlyVisible;
+          if (isVisible && !isRunning) {
+            isRunning = true;
+            animationFrameId = requestAnimationFrame(animate);
+          }
+        }
+      },
+      { threshold: 0 }
+    );
+    intersectionObserver.observe(container);
+
     animate();
 
     // Cleanup on unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('mousemove', handleMouseMove);
+      intersectionObserver.disconnect();
+      if (!isTouch) {
+        window.removeEventListener('mousemove', handleMouseMove);
+      } else {
+        window.removeEventListener('scroll', handleTouchScroll);
+        clearTimeout(scrollTimeout);
+      }
       resizeObserver.disconnect();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);

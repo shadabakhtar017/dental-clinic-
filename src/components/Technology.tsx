@@ -7,8 +7,8 @@ export const Technology: React.FC = () => {
 
   return (
     <section id="technology" className="py-24 sm:py-32 bg-[#F4F7FB] relative overflow-hidden">
-      <div className="absolute top-10 right-0 w-96 h-96 bg-[#00B4D8]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#0077B6]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-10 right-0 w-96 h-96 bg-[#00B4D8]/10 rounded-full blur-3xl pointer-events-none transform-gpu" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#0077B6]/5 rounded-full blur-3xl pointer-events-none transform-gpu" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

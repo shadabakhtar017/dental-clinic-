@@ -32,8 +32,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       </div>
 
       {/* Atmospheric Soft Radiant Ambient Background Blurs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#00B4D8]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-[30rem] h-[30rem] bg-[#90E0EF]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#00B4D8]/10 rounded-full blur-3xl pointer-events-none transform-gpu" />
+      <div className="absolute bottom-10 right-0 w-[30rem] h-[30rem] bg-[#90E0EF]/15 rounded-full blur-3xl pointer-events-none transform-gpu" />
 
       {/* Subtle radial gradient overlay to preserve extreme text contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#FAFBFC]/50 via-transparent to-[#FAFBFC] pointer-events-none z-0" />

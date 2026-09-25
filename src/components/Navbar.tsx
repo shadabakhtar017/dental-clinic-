@@ -10,14 +10,50 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const headerRef = React.useRef<HTMLElement>(null);
+
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Keyboard Escape listener, outside click, and body scroll lock for mobile menu
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handlePointerDown = (e: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handlePointerDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: 'Home', href: '#hero' },
@@ -68,10 +104,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       {/* Floating Main Navbar */}
       <header
-        className={`fixed top-0 md:top-8 left-0 right-0 z-50 transition-all duration-300 ${
+        ref={headerRef}
+        className={`fixed top-0 md:top-8 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 py-3 md:transition-all ${
           isScrolled
-            ? 'py-3 bg-white/85 backdrop-blur-md shadow-soft border-b border-black/[0.06]'
-            : 'py-5 bg-transparent'
+            ? 'md:py-3 bg-white/85 backdrop-blur-md shadow-soft border-b border-black/[0.06]'
+            : 'md:py-5 bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -136,9 +173,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </button>
         </div>
 
+        {/* Mobile Dropdown Backdrop (tap outside to close) */}
+        {mobileMenuOpen && (
+          <div
+            className="lg:hidden fixed inset-0 bg-black/25 backdrop-blur-[2px] -z-10"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         {/* Mobile Dropdown Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-full bg-white/95 backdrop-blur-xl border-b border-black/[0.08] shadow-soft-xl px-6 py-6 transition-all duration-300 animate-in slide-in-from-top">
+          <div className="lg:hidden absolute inset-x-0 top-full bg-white/95 backdrop-blur-xl border-b border-black/[0.08] shadow-soft-xl px-6 py-6 transition-all duration-300 max-h-[calc(100vh-80px)] overflow-y-auto">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <a
